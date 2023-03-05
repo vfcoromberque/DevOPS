@@ -1,0 +1,23 @@
+.post_footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    background-color: #414141;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.post_footer h2 {
+    color: aliceblue;
+    margin-left: 20px;
+}
+
+.post_footer button{
+    width: 20%;
+    height: 100%;
+}
+
+.post_coment {
+    width: 400px;
+}

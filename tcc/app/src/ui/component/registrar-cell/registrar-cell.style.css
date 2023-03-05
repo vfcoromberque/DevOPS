@@ -1,0 +1,19 @@
+.register_cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #FEFEFE;
+    height: 600px;
+    width: 700px;
+    border-radius: 5px;
+}
+
+.register_cell_form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register_cell_form button {
+    height: 50px;
+}

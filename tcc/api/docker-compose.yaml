@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=bascrescer
+      - POSTGRES_PASSWORD=bascrescer
+      - POSTGRES_DB=bascrescer
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./data/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    networks:
+      - app
+    ports:
+      - "5432:5432"
+    restart: always
+
+  app:
+    depends_on:
+      - postgres
+    container_name: bascrescer
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: bascrescer:v1
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/bascrescer
+      - SPRING_DATASOURCE_USER=bascrescer
+      - SPRING_DATASOURCE_PASSWORD=bascrescer
+    ports:
+      - "8080:8080"
+    networks:
+      - app
+
+volumes:
+  postgres-data:
+
+
+networks:
+  app:

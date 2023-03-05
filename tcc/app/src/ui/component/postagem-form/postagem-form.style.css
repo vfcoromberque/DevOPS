@@ -1,0 +1,21 @@
+.post_case {
+    display: flex;
+    flex-direction: column;
+    background-color: #FEFEFE;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.post_form {
+    display: flex;
+    flex-direction: column;
+}
+
+.post_form select{
+    width: 15%;
+}
+
+.post_form button {
+    background-color: #717171;
+    color: aliceblue;
+}

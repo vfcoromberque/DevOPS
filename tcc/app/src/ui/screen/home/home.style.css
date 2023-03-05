@@ -1,0 +1,22 @@
+.main_page {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+}
+
+.main_page_user_info {
+    width: 20%;
+    height: 100%;
+}
+
+.main_page_feed {
+    width: 50%;
+    height: 100%;
+}
+
+.main_page_connections {
+    width: 25%;
+    height: 100%;
+}

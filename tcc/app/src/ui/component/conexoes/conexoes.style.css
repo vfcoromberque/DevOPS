@@ -1,0 +1,22 @@
+.connection_tab {
+    background-color: #FEFEFE;
+    border-radius: 5px;
+    height: 100%;
+}
+
+.connection_tab_nav {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.connection_tab_nav button {
+    width: 33.3%;
+    border-radius: 5px;
+    border: 0;
+    height: 30px;
+}
+
+.connection_tab_list {
+    padding: 10px;
+    height: 95%;
+}

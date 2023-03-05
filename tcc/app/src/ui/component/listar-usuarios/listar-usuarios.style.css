@@ -1,0 +1,12 @@
+.user_list input {
+    width: 100%;
+}
+
+.user_card_list {
+    height: 95%;
+    overflow-y: scroll;
+}
+
+.user_list {
+    height: 100%;
+}

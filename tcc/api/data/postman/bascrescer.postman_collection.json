@@ -1,0 +1,584 @@
+{
+	"info": {
+		"_postman_id": "98d56ab6-ff45-40ab-b908-cf88b55bfcb1",
+		"name": "bascrescer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25730184"
+	},
+	"item": [
+		{
+			"name": "login",
+			"item": [
+				{
+					"name": "login [publico]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@cwi.com.br",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout [publico]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "postagens",
+			"item": [
+				{
+					"name": "lista comentarios [publico]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/postagens/1/comentarios",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"postagens",
+								"1",
+								"comentarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar feed [publico]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/postagens/feed?sort=dataPostagem,desc",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"postagens",
+								"feed"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "dataPostagem,desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar postagens usuario [publico]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/postagens/usuario/2?sort=dataPostagem,desc",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"postagens",
+								"usuario",
+								"2"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "dataPostagem,desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "numero curtidas [publico]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/postagens/1/curtidas",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"postagens",
+								"1",
+								"curtidas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "realizar postagem [publico]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"visualizacao\": \"PUBLICO\",\n    \"titulo\": \"Review bola\",\n    \"img\": \"https://images.tcdn.com.br/img/img_prod/1028923/bola_basquete_spalding_streetball_no_7_2485_1_ea026f0de320f15d48614689128cfd1b.jpg\",\n    \"conteudo\": \"Muito boa essa bola\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/postagens",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"postagens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "curtir postagem [publico]",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/curtidas/postagem/1/curtir",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"curtidas",
+								"postagem",
+								"1",
+								"curtir"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "realizar comentario [publico]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"conteudo\": \"Teste conteudo comentario\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/comentarios/postagem/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"comentarios",
+								"postagem",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "descurtir postagem [publico]",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/curtidas/postagem/1/descurtir",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"curtidas",
+								"postagem",
+								"1",
+								"descurtir"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "usuarios",
+			"item": [
+				{
+					"name": "detalhar usuario [publico]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/usuarios/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuarios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar usuarios [publico]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/usuarios?text=",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuarios"
+							],
+							"query": [
+								{
+									"key": "text",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "incluir usuário [publico]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Teste\",\n    \"email\": \"teste@cwi.com.br\",\n    \"apelido\": \"coro\",\n    \"dataNascimento\": \"1999-03-22\",\n    \"senha\": \"123456\",\n    \"img\": \"img.url\",\n    \"timeId\": 26\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/usuarios",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editar usuário [publico]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Vinicius\",\n    \"apelido\": \"coro\",\n    \"img\": \"https://media.nbcbayarea.com/2022/11/de27aaron-fox-return-GETTY.jpg?quality=85&strip=all&resize=850%2C478\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/usuarios",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "conexao",
+			"item": [
+				{
+					"name": "listar solicitacoes [publico]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/conexoes/solicitacoes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"conexoes",
+								"solicitacoes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar amigos [publico]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/conexoes/amigos?text=",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"conexoes",
+								"amigos"
+							],
+							"query": [
+								{
+									"key": "text",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "solicitar amizade [publico]",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/conexoes/usuario/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"conexoes",
+								"usuario",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "aceitar amizade [publico]",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/conexoes/usuario/2/aceitar",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"conexoes",
+								"usuario",
+								"2",
+								"aceitar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recusar amizade [publico]",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/conexoes/usuario/1/recusar",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"conexoes",
+								"usuario",
+								"1",
+								"recusar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "desfazer amizade [publico]",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/conexoes/usuario/1/desfazer",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"conexoes",
+								"usuario",
+								"1",
+								"desfazer"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "time",
+			"item": [
+				{
+					"name": "listar times [publico]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/times/publico",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"times",
+								"publico"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
